@@ -14,9 +14,7 @@ import os
 from oscar.defaults import *
 from oscar import OSCAR_MAIN_TEMPLATE_DIR
 from oscar import get_core_apps
-from django.conf.urls import include, url
-from django.contrib import admin
-from oscar.app import application
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,7 +30,8 @@ SECRET_KEY = '#@)zl&_00bs&*2l)d5gin_i_%zl_v3zqc0k8dks5%zmvc5#w@w'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-	'127.0.0.1']
+	'127.0.0.1',
+	'localhost',]
 
 
 # Application definition
@@ -47,8 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.flatpages',
+    'widget_tweaks',
     'compressor',
-    'widget_tweaks'
+    
 ] + get_core_apps()
 
 SITE_ID = 1
@@ -73,12 +73,6 @@ AUTHENTICATION_BACKENDS = [
 
 ROOT_URLCONF = 'frobshop.urls'
 
-urlpatterns = [
-	url(r'^i18n/', include('django.conf.urls.i18n')),
-
-	url(r'^admin/', include(admin.site.urls)),
-	url(r'', include(application.urls)),
-]
 
 HAYSTACK_CONNECTIONS = {
 	'default': {
