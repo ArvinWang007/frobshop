@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'compressor',
     
-] + get_core_apps()
+] + get_core_apps(['frobshop.order'])
 
 SITE_ID = 1
 
